@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('welcome', ['titolo' => 'hello word']);
+})->name('helloPag');
+
+
+Route::get('/new', function () { // Hpps
+    return view('pagNew', ['new' => 'hello new']);
+})->name('newPag');

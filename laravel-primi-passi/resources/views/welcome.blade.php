@@ -1,100 +1,85 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <title>Laravel</title>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- Fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet"> -->
 
-            .full-height {
-                height: 100vh;
-            }
+    <!-- Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+        header {
+            width: 100%;
+            height: 100px;
+            background-image: linear-gradient(50deg,
+                    hsl(33deg 100% 50%) 0%,
+                    hsl(31deg 100% 50%) 11%,
+                    hsl(29deg 100% 50%) 22%,
+                    hsl(27deg 100% 50%) 33%,
+                    hsl(25deg 100% 50%) 44%,
+                    hsl(22deg 100% 50%) 56%,
+                    hsl(19deg 100% 50%) 67%,
+                    hsl(16deg 100% 50%) 78%,
+                    hsl(11deg 100% 50%) 89%,
+                    hsl(0deg 100% 50%) 100%);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
 
-            .position-ref {
-                position: relative;
-            }
+        svg {
+            position: absolute;
+            top: 100%;
+            /* left: 0; */
+            /* right: 0; */
+            width: 100%;
+            height: 40px;
+        }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+        header>a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
 
-            .content {
-                text-align: center;
-            }
+        header>a:hover,
+        .active {
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 4px 4px 5px black;
+        }
+    </style>
+</head>
 
-            .title {
-                font-size: 84px;
-            }
+<body>
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+    <div class="content">
+        <header class="links">
+            <a class="active" href="{{route('helloPag')}}">word</a>
+            <a href="{{route('newPag')}}">News</a>
+            <a href="https://blog.laravel.com">Docs</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ff5500" fill-opacity="1" d="M0,224L34.3,234.7C68.6,245,137,267,206,272C274.3,277,343,267,411,234.7C480,203,549,149,617,160C685.7,171,754,245,823,272C891.4,299,960,277,1029,245.3C1097.1,213,1166,171,1234,160C1302.9,149,1371,171,1406,181.3L1440,192L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path>
+            </svg>
+        </header>
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+        <div class="title m-b-md">
+            <h1>{{ $titolo }}</h1>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
